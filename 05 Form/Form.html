@@ -1,131 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" id="bootstrap-css">
-    <!-- <link rel="stylesheet" href="main.js" /> -->
-  
-  </head>
 
-  <body>
-    
-    <div class="wrapper"> 
-      <div class="aggreement-form">
-        <div class="input-fields">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css"
+    rel="stylesheet" id="bootstrap-css">
+  <!-- <link rel="stylesheet" href="main.js" /> -->
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="aggreement-form">
+      <div class="input-fields">
         <h1> Formulir Pemesanan</h1>
 
-        <input type="text" class="input" placeholder="Nama">
-        <input type="text" class="input" placeholder="No KTP">
-        <input type="text" class="input" placeholder="Email">
-        <input type="text" class="input" placeholder="No Telepon">
-        <br>
-        
-        <h4>Kapan anda mau mulai menyewa:</h4>
-        <section class="col-sm-4">
-          <form>
-            <div class="form-group">
-                <div class='input-group date' id='datepicker'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+        <form action="">
+          <input type="text" class="input" placeholder="Nama" id="fieldnama" required>
+          <input type="number" class="input" placeholder="No KTP" id="noktp" required>
+          <input type="email" class="input" placeholder="Email" id="emailaddr" required>
+          <input type="number" class="input" placeholder="No Telepon" id="notlp" required>
+          <br>
+
+          <h4>Kapan anda mau mulai menyewa:</h4>
+          <input type='date' class="form-control" id="datestart" required />
+
+
+          <h4>Sampai tanggal berapa anda mau menyewanya:</h4>
+          <input type='date' class="form-control" id="dateend" required />
+
+
+          <br>
+
+          <h4>Upload foto KTP anda </h4>
+
+
+          <input type="file" id="photo" hidden="hidden" required />
+          <!-- <button type="button" id="custom-button">Upload File</button> -->
+          <button type="button" id="custom-button" style="background-color: transparent; width: min-content;">
+            <div class="content">
+              <div class="icon"><i class="fa fa-upload"></i></div>
+
+              <div class="text">Upload your image. Max 2MB!</div>
+
             </div>
+          </button>
+          <span id="custom-text" style="color: white;"></span>
+
+          <script type="text/javascript">
+            const photobtn = document.getElementById( "photo" );
+            const custombtn = document.getElementById( "custom-button" );
+            const customtxt = document.getElementById( "custom-text" );
+
+            custombtn.addEventListener( "click", function () {
+              photobtn.click();
+            } );
+
+            photobtn.addEventListener( "change", function () {
+              if ( photobtn.value ) {
+                customtxt.innerHTML = photobtn.value;
+              } else {
+                customtxt.innerHTML = "Belum ada file yang di upload. ";
+              }
+            } )
+          </script>
+          <br>
+
+
+          <!-- <div class="btn2" id="book-btn">BOOK</div> -->
+          <div class="text-center">
+            <a class="btn-cancel" id="cancel-btn" href="../01 home/home.html">Cancel</a>
+            <button type="submit" class="btn-submit" id="book-btn">Book</button>
+          </div>
+
         </form>
-        </section>
-        
-        <h4>Sampai tanggal berapa anda mau menyewanya:</h4>
-        <section class="col-sm-4">
-          <form>
-            <div class="form-group">
-                <div class='input-group date' id='datepickerend'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </form>
-        </section>
-        
-        
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-        <script >
-            $(function () {
-                $('#datepicker').datepicker({
-                    format: "dd/mm/yyyy",
-                    autoclose: true,
-                    todayHighlight: true,
-                  showOtherMonths: true,
-                  selectOtherMonths: true,
-                  autoclose: true,
-                  changeMonth: true,
-                  changeYear: true,
-                  orientation: "button"
-                  
-                });
-            });
-        
-            $(function () {
-                $('#datepickerend').datepickerend({
-                    format: "dd/mm/yyyy",
-                    autoclose: true,
-                    todayHighlight: true,
-                  showOtherMonths: true,
-                  selectOtherMonths: true,
-                  autoclose: true,
-                  changeMonth: true,
-                  changeYear: true,
-                  orientation: "button"
-                });
-            });
-        </script>
-        <br>
-
-        <h4>Upload foto KTP anda </h4>
-        <div class="content">
-          <div class="icon"><i class="fa fa-upload"></i></div>
-
-          <div class="text">Upload your image. Max 2MB!</div>
-
-        </div>
-
-        <input type="file" id="photo" hidden="hidden" />
-        <button type="button" id="custom-button">Upload File</button>
-        <span id="custom-text"></span>
-
         <script type="text/javascript">
-        const photobtn = document.getElementById("photo");
-        const custombtn = document.getElementById("custom-button");
-        const customtxt = document.getElementById("custom-text");
+          const bookbtn = document.getElementById( "book-btn" )
+          bookbtn.addEventListener( "click", function () {
 
-        custombtn.addEventListener("click", function(){
-          photobtn.click();
-        });
+            const nama = document.getElementById( 'fieldnama' ).value != ""
+            const noktp = document.getElementById( 'noktp' ).value != ""
+            const emailaddr = document.getElementById( 'emailaddr' ).value != ""
+            const notlp = document.getElementById( 'notlp' ).value != ""
+            const datestart = document.getElementById( 'datestart' ).value != ""
+            const dateend = document.getElementById( 'dateend' ).value != ""
+            const photo = document.getElementById( 'photo' ).value != ""
 
-        photobtn.addEventListener("change", function(){
-          if(photobtn.value){
-            customtxt.innerHTML = photobtn.value;
-          }else{
-            customtxt.innerHTML = "Belum ada file yang di upload. ";
-          }
-        })
+            if ( !photo ) {
+              const photobtn = document.getElementById( "photo" );
+              const custombtn = document.getElementById( "custom-button" );
+              const customtxt = document.getElementById( "custom-text" );
+              if ( photobtn.value ) {
+                customtxt.innerHTML = photobtn.value;
+              } else {
+                customtxt.innerHTML = "Belum ada file yang di upload. ";
+              }
+            }
+
+
+
+            if ( nama && noktp && emailaddr && notlp && datestart && dateend && photo ) {
+              alert( 'Data Registered' )
+            }
+
+
+          } )
         </script>
-
-
-        <div class="btn2">BOOK</div>
       </div>
 
     </div>
