@@ -27,13 +27,13 @@ function createCell ( item ) {
     if ( item.merk.toLowerCase() === 'harley davidson' ) {
         cardbody.append( title ).append( harian );
 
-        btn = $( ` <a href="\../04 detail/${ item.url }"><button type="button" class="btn btn-primary btn-rent">RENT</button> </a>` );
+        btn = $( ` <a href="\../04 detail/${ item.url }"><button type="button" class="btn btn-primary btn-rent">Book</button> </a>` );
         cardbody.append( btn );
     } else {
         mingguan = $( `<h5> Mingguan : ${ convert( item.harga.mingguan ) } </h5> ` );
         cardbody.append( title ).append( harian ).append( mingguan );
 
-        btn = $( ` <a href="\../04 detail/${ item.url }"><button type="button" class="btn btn-primary btn-rent">RENT</button> </a>` );
+        btn = $( ` <a href="\../04 detail/${ item.url }"><button type="button" class="btn btn-primary btn-rent">Book</button> </a>` );
         cardbody.append( btn );
     }
 
