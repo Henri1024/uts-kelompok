@@ -276,7 +276,7 @@ var finaldatas = {
                 ]
             },
             "foto": [
-                "honda/Honda Supra X 125 FI.png"
+                "honda/Honda Supra X 125 Fi.png"
             ],
             "harga": {
                 "harian": 45000,
