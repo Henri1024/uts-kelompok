@@ -28,7 +28,7 @@ function createCell ( item ) {
     mingguan = $( `<h5> Mingguan : ${ convert( item.harga.mingguan ) } </h5> ` );
     cardbody.append( title ).append( harian ).append( mingguan );
 
-    btn = $( `<button type="submit" onclick="location.href=\'../04 detail/${ item.url } \'" class="btn btn-primary btn-rent">RENT</button>` );
+    btn = $( ` <a href="\../04 detail/${ item.url }"><button type="button" class="btn btn-primary btn-rent">RENT</button> </a>` );
     cardbody.append( btn );
 
 
